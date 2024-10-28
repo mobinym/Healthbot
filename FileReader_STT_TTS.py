@@ -9,7 +9,7 @@ def convert_audio_to_wav(file_path):
     return wav_file_path
 
 
-file_path = r"C:\Users\yagho\OneDrive\Desktop\New folder\Darvishi_Project\17300143351568ua0pgib-voicemaker.in-speech.wav"  # Path to your audio file
+file_path = r"17300143351568ua0pgib-voicemaker.in-speech.wav"  # Path to your audio file
 wav_file_path = convert_audio_to_wav(file_path)
 
 
