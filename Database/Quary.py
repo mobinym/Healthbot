@@ -12,8 +12,8 @@ def get_job_ids_by_title(job_title):
         query = "SELECT JobID FROM MedicalJobs WHERE JobTitle = ?"
         cursor.execute(query, (job_title,))
         
-        results = cursor.fetchall()  # Fetch all matching records
-        job_ids = [result[0] for result in results]  # Extract JobIDs from the results
+        results = cursor.fetchall()
+        job_ids = [result[0] for result in results] 
         return job_ids  
 
     except Exception as e:
