@@ -68,6 +68,7 @@ print(f"Final Transcription: {transcription}")
 #--------------------------------open chrome---------------------------------------
 import subprocess
 import pyttsx3
+import numpy as np
 
 
 engine = pyttsx3.init()
