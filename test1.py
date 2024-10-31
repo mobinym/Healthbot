@@ -34,3 +34,4 @@ except sr.RequestError:
     print("خطا در اتصال به سرویس شناسایی صدا.")
 except Exception as e:
     print(f"یک خطا رخ داده است: {e}")
+
