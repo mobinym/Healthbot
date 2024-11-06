@@ -21,7 +21,7 @@ def convert_audio_to_wav(file_path):
     return wav_file_path
 
 
-file_path = r"17300143351568ua0pgib-voicemaker.in-speech.wav"  # Path to your audio file
+file_path = r"E:\AI\AIO learn\Projects\last_version(Darvishi)\Darvishi_Project\general_voice.wav"  # Path to your audio file
 wav_file_path = convert_audio_to_wav(file_path)
 
 
@@ -113,25 +113,33 @@ print(extract_special_terms(transcription))
 
 
 #----------------------------Quary To DB----------------------------------------------------------
-import pyodbc
+import mysql.connector
 
-server = 'MYM-DESKTOP'
+
+host = 'localhost'  # یا نام سرور MySQL
 database = 'Darvishi_db'
-connection_string = f'DRIVER={{SQL Server}};SERVER={server};DATABASE={database};Trusted_Connection=yes;'
+user = 'root'  # نام کاربری MySQL
+password = 'Mobin_ym11228'  # پسورد MySQL
 
 def get_job_ids_by_title(job_title):
-    conn = pyodbc.connect(connection_string)
-    cursor = conn.cursor()
-    
     try:
-        query = "SELECT JobID FROM MedicalJobs WHERE JobTitle = ?"
+        # اتصال به دیتابیس MySQL
+        conn = mysql.connector.connect(
+            host=host,
+            database=database,
+            user=user,
+            password=password
+        )
+        cursor = conn.cursor()
+        
+        query = "SELECT JobID FROM MedicalJobs WHERE JobTitle = %s"
         cursor.execute(query, (job_title,))
         
         results = cursor.fetchall()
-        job_ids = [result[0] for result in results] 
+        job_ids = [result[0] for result in results]  # استخراج JobID ها
         return job_ids  
 
-    except Exception as e:
+    except mysql.connector.Error as e:
         print(f"Error: {e}")
         return None
     finally:
