@@ -1,7 +1,7 @@
 import speech_recognition as sr
 import os
 import webbrowser  
-
+import pandas
 record = sr.Recognizer()
 
 print("در حال گوش کردن...")
@@ -34,3 +34,4 @@ except sr.RequestError:
     print("خطا در اتصال به سرویس شناسایی صدا.")
 except Exception as e:
     print(f"یک خطا رخ داده است: {e}")
+
